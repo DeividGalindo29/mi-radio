@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,7 +41,9 @@
   <main id="inicio" class="hero">
     <div class="hero__content">
       <div class="hero__logoWrap" aria-label="Logo principal">
-        <img class="logo logo--hero" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s" alt="Logo de la radio" />
+        <img class="logo logo--hero"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s"
+          alt="Logo de la radio" />
       </div>
 
       <h1>Yo Amo La Salsa</h1>
@@ -67,28 +70,55 @@
               <span class="badge" id="badgeStatus">PAUSADO</span>
               <span class="hint" id="hintText">Listo para reproducir</span>
             </div>
+            <!-- Ecualizador real -->
+            <canvas id="eqCanvas" class="eqCanvas" width="180" height="38" aria-label="Ecualizador"></canvas>
           </div>
         </div>
+      </div>
+      <div class="eq" id="eq" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
 
-        <div class="player__right">
-          <label class="vol" for="volume">
-            <span class="vol__icon" aria-hidden="true">🔊</span>
-            <span class="srOnly">Volumen</span>
-          </label>
-          <input id="volume" class="range" type="range" min="0" max="1" step="0.01" value="0.8" />
-          <span class="vol__value" id="volValue">80%</span>
+      <div class="player__right">
+        <label class="vol" for="volume">
+          <span class="vol__icon" aria-hidden="true">🔊</span>
+          <span class="srOnly">Volumen</span>
+        </label>
+        <input id="volume" class="range" type="range" min="0" max="1" step="0.01" value="0.8" />
+        <span class="vol__value" id="volValue">80%</span>
+      </div>
+      <div class="eqControls">
+        <div class="eqRow">
+          <span class="eqLabel">Bajos</span>
+          <input id="bass" class="range" type="range" min="-12" max="12" step="1" value="0">
+          <span class="eqVal" id="bassVal">0 dB</span>
         </div>
 
-        <!-- ✅ AQUÍ PONES TU LINK DE STREAMING -->
-        <audio id="audio" preload="none" data-stream="https://stream.latinastereo.com/proxy/latina/;stream/1"></audio>
+        <div class="eqRow">
+          <span class="eqLabel">Medios</span>
+          <input id="mid" class="range" type="range" min="-12" max="12" step="1" value="0">
+          <span class="eqVal" id="midVal">0 dB</span>
+        </div>
+
+        <div class="eqRow">
+          <span class="eqLabel">Brillo</span>
+          <input id="treble" class="range" type="range" min="-12" max="12" step="1" value="0">
+          <span class="eqVal" id="trebleVal">0 dB</span>
+        </div>
       </div>
+
+      <!-- ✅ AQUÍ PONES TU LINK DE STREAMING -->
+      <audio id="audio" preload="none" data-stream="https://stream.latinastereo.com/proxy/latina/;stream/1"></audio>
+    </div>
     </div>
   </section>
 
   <!-- MID LOGO (logo en el medio) -->
   <section class="section section--midLogo">
     <div class="container midLogo">
-      <img class="logo logo--mid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s" alt="Logo secundario" />
+      <img class="logo logo--mid"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s"
+        alt="Logo secundario" />
       <div>
         <h2>Más que música</h2>
         <p>Donde el corazón late al ritmo de la mejor salsa del mundo.</p>
@@ -157,4 +187,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

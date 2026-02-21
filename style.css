@@ -372,3 +372,95 @@ input:focus, textarea:focus{
   .logo--mid{ margin: 0 auto; }
   .footer__inner{ flex-direction: column; align-items: flex-start; }
 }
+/* ===== Mini Ecualizador ===== */
+.eq{
+  margin-top: 8px;
+  height: 14px;
+  display: inline-flex;
+  gap: 4px;
+  align-items: flex-end;
+  opacity: 0.95;
+}
+
+.eq span{
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.75);
+  transform-origin: bottom;
+  animation: eqMove 900ms ease-in-out infinite;
+  animation-play-state: paused; /* apagado por defecto */
+}
+
+/* variación para que no se muevan igual */
+.eq span:nth-child(1){ animation-duration: 780ms; }
+.eq span:nth-child(2){ animation-duration: 920ms; }
+.eq span:nth-child(3){ animation-duration: 700ms; }
+.eq span:nth-child(4){ animation-duration: 980ms; }
+.eq span:nth-child(5){ animation-duration: 820ms; }
+
+@keyframes eqMove{
+  0%   { height: 4px;  opacity: 0.55; }
+  25%  { height: 14px; opacity: 0.95; }
+  50%  { height: 7px;  opacity: 0.75; }
+  75%  { height: 12px; opacity: 0.90; }
+  100% { height: 4px;  opacity: 0.55; }
+}
+
+/* Cuando está reproduciendo */
+.eq.is-playing span{
+  animation-play-state: running;
+}
+
+/* Cuando está pausado */
+.eq.is-paused span{
+  animation-play-state: paused;
+  height: 4px;
+  opacity: 0.55;
+}
+/* ===== Ecualizador REAL (canvas) ===== */
+.eqCanvas{
+  margin-top: 10px;
+  width: 180px;         /* se puede ajustar */
+  height: 38px;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.15);
+}
+@media (max-width: 860px){
+  .eqCanvas{
+    width: 100%;
+  }
+}
+/* ===== Controles EQ (Bajos / Medios / Brillo) ===== */
+.eqControls{
+  margin-top: 12px;
+  width: 320px;
+  display: grid;
+  gap: 10px;
+}
+
+.eqRow{
+  display: grid;
+  grid-template-columns: 70px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+}
+
+.eqLabel{
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.eqVal{
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 860px){
+  .eqControls{ width: 100%; }
+  .eqRow{ grid-template-columns: 70px 1fr 60px; }
+}
