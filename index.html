@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yo Amo La Salsa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#">
+        <span class="brand__dot"></span>
+        <span class="brand__text">Yo Amo La Salsa</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#reproductor">Reproductor</a>
+        <a href="#programacion">Programación</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+    <div class="nav__mobile" id="navMobile" hidden>
+      <a href="#inicio">Inicio</a>
+      <a href="#reproductor">Reproductor</a>
+      <a href="#programacion">Programación</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <!-- HERO (logo al inicio) -->
+  <main id="inicio" class="hero">
+    <div class="hero__content">
+      <div class="hero__logoWrap" aria-label="Logo principal">
+        <img class="logo logo--hero" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s" alt="Logo de la radio" />
+      </div>
+
+      <h1>Yo Amo La Salsa</h1>
+      <p>La casa oficial del sabor latino y la mejor salsa en vivo 24/7.</p>
+
+      <a class="btn" href="#reproductor">Ir al reproductor</a>
+    </div>
+  </main>
+
+  <!-- PLAYER -->
+  <section id="reproductor" class="section">
+    <div class="container">
+      <h2>Reproductor</h2>
+
+      <div class="player" role="group" aria-label="Controles del reproductor">
+        <div class="player__left">
+          <button class="player__btn" id="btnPlay" type="button" aria-label="Reproducir">
+            ▶
+          </button>
+
+          <div class="player__meta">
+            <div class="player__title">Yo Amo La Salsa</div>
+            <div class="player__status">
+              <span class="badge" id="badgeStatus">PAUSADO</span>
+              <span class="hint" id="hintText">Listo para reproducir</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="player__right">
+          <label class="vol" for="volume">
+            <span class="vol__icon" aria-hidden="true">🔊</span>
+            <span class="srOnly">Volumen</span>
+          </label>
+          <input id="volume" class="range" type="range" min="0" max="1" step="0.01" value="0.8" />
+          <span class="vol__value" id="volValue">80%</span>
+        </div>
+
+        <!-- ✅ AQUÍ PONES TU LINK DE STREAMING -->
+        <audio id="audio" preload="none" data-stream="http://radio.domiplay.net:2002/;stream.mp3"></audio>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID LOGO (logo en el medio) -->
+  <section class="section section--midLogo">
+    <div class="container midLogo">
+      <img class="logo logo--mid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-1X6tepHIUDXmLTU2veVFnjwAdchZiNJBCg&s" alt="Logo secundario" />
+      <div>
+        <h2>Más que música</h2>
+        <p>Donde el corazón late al ritmo de la mejor salsa del mundo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMACIÓN -->
+  <section id="programacion" class="section">
+    <div class="container">
+      <h2>Programación</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Mañanas Salseras</h3>
+          <p>Despierta con el mejor sabor latino, clásicos inolvidables y la energía que solo la salsa puede dar.</p>
+        </article>
+        <article class="card">
+          <h3>Tardes con Sabor</h3>
+          <p>Los éxitos más bailables, dedicatorias y el tumbao perfecto para acompañar tu día.</p>
+        </article>
+        <article class="card">
+          <h3>Noches de Rumba</h3>
+          <p>Especiales en vivo, salsa romántica y los sonidos que encienden la pista.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="contact">
+        <div class="card">
+          <h3>Escríbenos</h3>
+          <p>YoAmoLaSalsa@gmail.com</p>
+          <p>+57 304 764 3423</p>
+        </div>
+
+        <form class="card form" onsubmit="return false;">
+          <label>
+            Nombre
+            <input type="text" placeholder="Tu nombre" />
+          </label>
+          <label>
+            Mensaje
+            <textarea rows="4" placeholder="Tu mensaje"></textarea>
+          </label>
+          <button class="btn" type="button">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (barra final) -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© <span id="year"></span> Yo Amo La Salsa. Todos los derechos reservados.</p>
+      <div class="footer__links">
+        <a href="#inicio">Inicio</a>
+        <a href="#reproductor">Reproductor</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
